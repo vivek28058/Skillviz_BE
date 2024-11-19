@@ -1,0 +1,41 @@
+name: SonarCloud Scan
+ 
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+ 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # You can adjust the version as needed
+ 
+      - name: Install dependencies
+        run: npm install
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Install SonarCloud Scanner
+        run: npm install -g sonar-scanner
+
+      - name: Run SonarCloud Scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # SonarCloud token stored as a GitHub secret
+        run: |
+          sonar-scanner \
+          -Dsonar.projectKey=vivek28058_sonarcloud \
+          -Dsonar.organization=vivek28058 \
+          -Dsonar.sources=. \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
