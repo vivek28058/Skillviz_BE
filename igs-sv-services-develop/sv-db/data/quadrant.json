@@ -1,0 +1,58 @@
+{
+"quadrants":[
+    {
+        "Name":"Domain",
+        "Score":0,
+        "Total":0,
+        "0":0,
+        "1":0,
+        "2":0,
+        "3":0,
+        "4":0,
+        "SubCategories":["Domain"]
+    },
+    {
+        "Name":"Capability",
+        "Score":0,
+        "Total":0,
+        "0":0,
+        "1":0,
+        "2":0,
+        "3":0,
+        "4":0,
+        "SubCategories":[
+            "Capability",
+            "Scripting Language",
+            "Framework",
+            "Platform"
+        ]
+    },
+    {
+        "Name":"Tools",
+        "Score":0,
+        "Total":0,
+        "0":0,
+        "1":0,
+        "2":0,
+        "3":0,
+        "4":0,
+        "SubCategories":[
+            "Tools",
+            "IDE",
+            "",
+            ""
+        ]
+    },
+    {
+        "Name":"Interpersonal",
+        "Score":0,
+        "Total":0,
+        "0":0,
+        "1":0,
+        "2":0,
+        "3":0,
+        "4":0,
+        "SubCategories":["Interpersonal"]
+    }
+]
+}

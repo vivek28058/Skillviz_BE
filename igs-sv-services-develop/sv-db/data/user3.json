@@ -1,0 +1,1742 @@
+{
+  "skills_master": {
+    "user": {
+      "u_id": "1234ABE",
+      "name": "Chetan Ponnappa",
+      "isActive":1,
+      "details": {
+        "designation": {
+          "hierarchy_id": "90",
+          "hierarchy_name":"Senior Manager",
+          "name": "Senior Project Manager"
+        },
+        "experience": 12
+      }
+    },
+    "categories": [
+      {
+        "name": "Business Domain",
+        "total_score":200,
+        "my_score":100,
+        "sub-category": [
+          {
+            "name": "Domain",
+            "total_score":200,
+            "my_score":100,
+            "concern": [
+              {
+                "name": "OTT",
+                "score": 2
+              },
+              {
+                "name": "Healthcare - Remote Patient Monitoring",
+                "score": 2
+              },
+              {
+                "name": "Healthcare - Behavioral Health",
+                "score": 2
+              },
+              {
+                "name": "Healthcare - Hospitals Management",
+                "score": 2
+              },
+              {
+                "name": "Healthcare - Pharmacy",
+                "score": 2
+              },
+              {
+                "name": "Healthcare - Data & Reporting",
+                "score": 2
+              },
+              {
+                "name": "Healthcare - Clinical Trials & Lab",
+                "score": 2
+              },
+              {
+                "name": "Healthcare - Wellness & Fitness",
+                "score": 2
+              },
+              {
+                "name": "FinTech - P2P Lending",
+                "score": 2
+              },
+              {
+                "name": "Fintech - Wallet",
+                "score": 2
+              },
+              {
+                "name": "Fintech - Payment",
+                "score": 2
+              },
+              {
+                "name": "Fintech - Credit Scores",
+                "score": 2
+              },
+              {
+                "name": "Fintech - Loyalty Management",
+                "score": 2
+              },
+              {
+                "name": "Banking - Open Banking",
+                "score": 2
+              },
+              {
+                "name": "Banking - Core Banking",
+                "score": 2
+              },
+              {
+                "name": "Banking - Wealth Management",
+                "score": 2
+              },
+              {
+                "name": "Banking - Treasury",
+                "score": 2
+              },
+              {
+                "name": "Banking - Cards & Payments",
+                "score": 2
+              },
+              {
+                "name": "Banking - Online & Mobile Banking",
+                "score": 2
+              },
+              {
+                "name": "Banking -- Lending",
+                "score": 2
+              },
+              {
+                "name": "Banking - Fraud Management",
+                "score": 2
+              },
+              {
+                "name": "Insurance - Policy Administration System",
+                "score": 2
+              },
+              {
+                "name": "Insurance - Customer Relation Management",
+                "score": 2
+              },
+              {
+                "name": "Insurance - Claims & Processing",
+                "score": 2
+              },
+              {
+                "name": "Insurance - Underwriting",
+                "score": 2
+              },
+              {
+                "name": "Insurance - Life",
+                "score": 2
+              },
+              {
+                "name": "Insurance - Health",
+                "score": 2
+              },
+              {
+                "name": "Insurance - General",
+                "score": 2
+              },
+              {
+                "name": "Finance Service - Portfolio Management",
+                "score": 2
+              },
+              {
+                "name": "Finance Service - Investment Management",
+                "score": 2
+              },
+              {
+                "name": "Finance Service - Capital Risk",
+                "score": 2
+              },
+              {
+                "name": "Finance Service - Mortgage & Leasing",
+                "score": 2
+              },
+              {
+                "name": "Retail - Warehouse Management",
+                "score": 2
+              },
+              {
+                "name": "Retail - CRM",
+                "score": 2
+              },
+              {
+                "name": "Retail - CMS",
+                "score": 2
+              },
+              {
+                "name": "Retail - Logistics & SCM",
+                "score": 2
+              },
+              {
+                "name": "Retail - Digital",
+                "score": 2
+              },
+              {
+                "name": "Airlines - Passenger Service System",
+                "score": 4
+              },
+              {
+                "name": "Airlines - Crew Management",
+                "score": 4
+              },
+              {
+                "name": "Airlines - M&E",
+                "score": 4
+              },
+              {
+                "name": "Airlines - Flight Operations",
+                "score": 4
+              },
+              {
+                "name": "Airlines - Airport Management",
+                "score": 2
+              },
+              {
+                "name": "Airlines - Reservation Management System",
+                "score": 2
+              },
+              {
+                "name": "Airlines - Revenue Planning",
+                "score": 2
+              },
+              {
+                "name": "EdTech - LMS",
+                "score": 0
+              },
+              {
+                "name": "EdTEch - Assessment & Certification",
+                "score": 0
+              },
+              {
+                "name": "Gaming",
+                "score": 4
+              },
+              {
+                "name": "Telco - Retail",
+                "score": 0
+              },
+              {
+                "name": "Telco -- OSS",
+                "score": 0
+              },
+              {
+                "name": "Telco -- BSS",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+      "name": "Methodology",
+        "total_score":32,
+        "my_score":28,
+        "sub-category": [
+          {
+            "name": "Capability",
+            "total_score":32,
+            "my_score":28,
+            "concern": [
+              {
+                "name": "Enterprise Test Methodology",
+                "score": 4
+              },
+              {
+                "name": "Agile Scrum",
+                "score": 4
+              },
+              {
+                "name": "Agile SAFE",
+                "score": 4
+              },
+              {
+                "name": "Agile Kanban",
+                "score": 4
+              },
+              {
+                "name": "BDD",
+                "score": 3
+              },
+              {
+                "name": "TDD",
+                "score": 2
+              },
+              {
+                "name": "ATTD",
+                "score": 3
+              },
+              {
+                "name": "Waterfall",
+                "score": 4
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Test Type",
+        "total_score":76,
+        "my_score":50,
+        "sub-category": [
+          {
+            "name": "Capability",
+            "total_score":76,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "Web App Testing",
+                "score": 0
+              },
+              {
+                "name": "Desktop App Testing",
+                "score": 0
+              },
+              {
+                "name": "Mobile App Testing",
+                "score": 0
+              },
+              {
+                "name": "API Testing",
+                "score": 0
+              },
+              {
+                "name": "QoE Testing",
+                "score": 0
+              },
+              {
+                "name": "ETL  Testing",
+                "score": 0
+              },
+              {
+                "name": "MainFrame Testing",
+                "score": 0
+              },
+              {
+                "name": "Games / Console Testing",
+                "score": 0
+              },
+              {
+                "name": "Accessibility Testing",
+                "score": 0
+              },
+              {
+                "name": "AI_ML Testing",
+                "score": 0
+              },
+              {
+                "name": "Embedded Testing",
+                "score": 0
+              },
+              {
+                "name": "Compatibility Testing",
+                "score": 0
+              },
+              {
+                "name": "Analytics Testing",
+                "score": 0
+              },
+              {
+                "name": "Ads Validation",
+                "score": 0
+              },
+              {
+                "name": "Performance Benchmarking",
+                "score": 0
+              },
+              {
+                "name": "DB Testing",
+                "score": 0
+              },
+              {
+                "name": "Blockchain System Testing",
+                "score": 0
+              },
+              {
+                "name": "RPA Bots Testing",
+                "score": 0
+              },
+              {
+                "name": "ERP Testing",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Requirement Management",
+        "total_score":68,
+        "my_score":50,
+        "sub-category": [
+          {
+            "name": "Capability",
+            "total_score":16,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "Ambiguity Analysis",
+                "score": 0
+              },
+              {
+                "name": "Estimation ",
+                "score": 0
+              },
+              {
+                "name": "Mind-maps",
+                "score": 0
+              },
+              {
+                "name": "System Appreciation Document (SAD)",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "name": "Tools",
+            "total_score":52,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "IGS Ambiguity Checker",
+                "score": 0
+              },
+              {
+                "name": "JIRA",
+                "score": 0
+              },
+              {
+                "name": "Octane (ALM)",
+                "score": 0
+              },
+              {
+                "name": "Asana",
+                "score": 0
+              },
+              {
+                "name": "Rally",
+                "score": 0
+              },
+              {
+                "name": "IGS Estimator",
+                "score": 0
+              },
+              {
+                "name": "Kiplot",
+                "score": 0
+              },
+              {
+                "name": "Miro Board",
+                "score": 0
+              },
+              {
+                "name": "LucidChart",
+                "score": 0
+              },
+              {
+                "name": "Confluence",
+                "score": 0
+              },
+              {
+                "name": "MS Office",
+                "score": 0
+              },
+              {
+                "name": "PACT (API)",
+                "score": 0
+              },
+              {
+                "name": "Swagger (API)",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Test Management",
+        "total_score":96,
+        "my_score":60,
+        "sub-category": [
+          {
+            "name": "Capability",
+            "total_score":60,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "Test Strategy Development",
+                "score": 0
+              },
+              {
+                "name": "Test Plan Development",
+                "score": 0
+              },
+              {
+                "name": "Test Scenario Creation",
+                "score": 0
+              },
+              {
+                "name": "Test Case Creation",
+                "score": 0
+              },
+              {
+                "name": "Develop DB Query - SQL",
+                "score": 0
+              },
+              {
+                "name": "Develop DB Query - NoSQL",
+                "score": 0
+              },
+              {
+                "name": "Develop DB Query - BigQuery",
+                "score": 0
+              },
+              {
+                "name": "Test case Automation Feasibility",
+                "score": 0
+              },
+              {
+                "name": "Test Suite Design",
+                "score": 0
+              },
+              {
+                "name": "RTM ",
+                "score": 0
+              },
+              {
+                "name": "Issues & Risks",
+                "score": 0
+              },
+              {
+                "name": "Escalation Management",
+                "score": 0
+              },
+              {
+                "name": "Test Case Reviews",
+                "score": 0
+              },
+              {
+                "name": "Defect Reviews",
+                "score": 0
+              },
+              {
+                "name": "Setting up Project Dashboard (JIRA, Asana)",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "name": "Tools",
+            "total_score":36,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "Zephyr-Scale",
+                "score": 0
+              },
+              {
+                "name": "X-Ray",
+                "score": 0
+              },
+              {
+                "name": "Test Rail",
+                "score": 0
+              },
+              {
+                "name": "Click-up",
+                "score": 0
+              },
+              {
+                "name": "Azure - Board",
+                "score": 0
+              },
+              {
+                "name": "qTest",
+                "score": 0
+              },
+              {
+                "name": "Red Mine",
+                "score": 0
+              },
+              {
+                "name": "TOAD",
+                "score": 0
+              },
+              {
+                "name": "MySQL",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Test Automation",
+        "total_score":208,
+        "my_score":150,
+        "sub-category": [
+          {
+            "name": "Capability",
+            "total_score":44,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "Automation Tool Feasibility",
+                "score": 0
+              },
+              {
+                "name": "Framework Development",
+                "score": 0
+              },
+              {
+                "name": "Test Script Development",
+                "score": 0
+              },
+              {
+                "name": "Automated Test Suite Execution",
+                "score": 0
+              },
+              {
+                "name": "Test Automation Failure Analysis",
+                "score": 0
+              },
+              {
+                "name": "Automation Script Debug & Maintain",
+                "score": 0
+              },
+              {
+                "name": "Web App Automation",
+                "score": 0
+              },
+              {
+                "name": "Mobile App Automation",
+                "score": 0
+              },
+              {
+                "name": "API Automation",
+                "score": 0
+              },
+              {
+                "name": "Living Room Device Automation",
+                "score": 0
+              },
+              {
+                "name": "Wearable Automation",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "name": "Scripting Language",
+            "total_score":36,
+            "my_score":0,
+            "evaluation" :[0,1,2,3,4],
+            "concern": [
+              {
+                "name":"Java",
+                "score":0
+              },
+              {
+                "name":"Java Script",
+                "score":0
+              },
+              {
+                "name":"Python",
+                "score":0
+              },
+              {
+                "name":"Typescript",
+                "score":0
+              },
+              {
+                "name": "VB Script",
+                "score":0  
+              },
+              {
+                "name":"Kotlin",
+                "score":0  
+              },
+              {
+                "name":"Swift",
+                "score":0  
+              },
+              {
+                "name":"Groovy",
+                "score":0  
+              },
+              {
+                "name":"C#",
+                "score":0  
+              } 
+            ]
+        },
+          {
+            "name": "Tools",
+            "total_score":44,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "EggPlant",
+                "score": 0
+              },
+              {
+                "name": "Katalon",
+                "score": 0
+              },
+              {
+                "name": "Suitest",
+                "score": 0
+              },
+              {
+                "name": "Test Complete",
+                "score": 0
+              },
+              {
+                "name": "UFT",
+                "score": 0
+              },
+              {
+                "name": "TOSCA",
+                "score": 0
+              },
+              {
+                "name": "Worksoft - Certify",
+                "score": 0
+              },
+              {
+                "name": "Postman - Postbot",
+                "score": 0
+              },
+              {
+                "name": "Ready API",
+                "score": 0
+              },
+              {
+                "name": "SOAP",
+                "score": 0
+              },
+              {
+                "name": "Gauge",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "name": "Framework",
+            "total_score":72,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "Junit",
+                "score": 0
+              },
+              {
+                "name": "nUnit",
+                "score": 0
+              },
+              {
+                "name": "TestNG",
+                "score": 0
+              },
+              {
+                "name": "Selenium",
+                "score": 0
+              },
+              {
+                "name": "Appium",
+                "score": 0
+              },
+              {
+                "name": "IGS UTAF",
+                "score": 0
+              },
+              {
+                "name": "Webdriver.IO",
+                "score": 0
+              },
+              {
+                "name": "Playwright",
+                "score": 0
+              },
+              {
+                "name": "Cypress",
+                "score": 0
+              },
+              {
+                "name": "Cucumber",
+                "score": 0
+              },
+              {
+                "name": "Robot Framework",
+                "score": 0
+              },
+              {
+                "name": "Serenity",
+                "score": 0
+              },
+              {
+                "name": "Mocha",
+                "score": 0
+              },
+              {
+                "name": "Protractor",
+                "score": 0
+              },
+              {
+                "name": "Nightwatch JS",
+                "score": 0
+              },
+              {
+                "name": "RestAssured",
+                "score": 0
+              },
+              {
+                "name": "Karate",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "name": "IDE",
+            "total_score":12,
+            "my_score":0,
+            "concern": [
+              {
+                "name":"Eclipse",
+                "score": 0
+              },
+              {
+                "name": "IntelliJ",
+                "score": 0
+              },
+              {
+                "name": "PyCharm",
+                "score": 0
+              },
+              {
+                "name": "Visual Studio",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Service Virtualization",
+        "total_score":28,
+        "my_score":20,
+        "sub-category": [
+          {
+            "name": "Capability",
+            "total_score":8,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "Virtual Service Development",
+                "score": 0
+              },
+              {
+                "name": "Mock API Development",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "name": "Tools",
+            "total_score":20,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "Broadcom LISA (CA)",
+                "score": 0
+              },
+              {
+                "name": "Citrus",
+                "score": 0
+              },
+              {
+                "name": "Wiremock",
+                "score": 0
+              },
+              {
+                "name": "Postman Mock Server",
+                "score": 0
+              },
+              {
+                "name": "ReadyAPI  SV",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TDM",
+        "total_score":28,
+        "my_score":15,
+        "sub-category": [
+          {
+            "name": "Capability",
+            "total_score":12,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "Synthetic Data Creation",
+                "score": 0
+              },
+              {
+                "name": "Data Masking",
+                "score": 0
+              },
+              {
+                "name": "Data Subsetting",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "name": "Tools",
+            "total_score":16,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "GenRocket",
+                "score": 0
+              },
+              {
+                "name": "Test Data Generation Informatica",
+                "score": 0
+              },
+              {
+                "name": "Delphix",
+                "score": 0
+              },
+              {
+                "name": "Broadcom TDM",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Test Executions",
+        "total_score":48,
+        "my_score":43,
+        "sub-category": [
+          {
+            "name": "Capability",
+            "total_score":20,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "App Installations",
+                "score": 0
+              },
+              {
+                "name": "Log Capturing & Analysis",
+                "score": 0
+              },
+              {
+                "name": "Defect Writing",
+                "score": 0
+              },
+              {
+                "name": "Defect RCA",
+                "score": 0
+              },
+              {
+                "name": "Defect Management Life Cycle",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "name": "Tools",
+            "total_score":28,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "Charles",
+                "score": 0
+              },
+              {
+                "name": "Fiddler",
+                "score": 0
+              },
+              {
+                "name": "ADB",
+                "score": 0
+              },
+              {
+                "name": "xCode",
+                "score": 0
+              },
+              {
+                "name": "Browser Developer Tools",
+                "score": 0
+              },
+              {
+                "name": "Microsoft PICT",
+                "score": 0
+              },
+              {
+                "name": "Postman - Manual",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Test Reporting",
+        "total_score":16,
+        "my_score":12,
+        "sub-category": [
+          {
+            "name": "Capability",
+            "total_score":16,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "Project Metric Reporting",
+                "score": 0
+              },
+              {
+                "name": "Daily Status Reporting",
+                "score": 0
+              },
+              {
+                "name": "Weekly Status Reporting",
+                "score": 0
+              },
+              {
+                "name": "Final Test Report",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Performance Engineering",
+        "total_score":128,
+        "my_score":89,
+        "sub-category": [
+          {
+            "name": "Capability",
+            "total_score":68,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "Web App Performance Testing",
+                "score": 0
+              },
+              {
+                "name": "Mobile App Performance Testing",
+                "score": 0
+              },
+              {
+                "name": "API Performance Testing",
+                "score": 0
+              },
+              {
+                "name": "Living Room Device Performance Testing",
+                "score": 0
+              },
+              {
+                "name": "Wearable Performance Testing",
+                "score": 0
+              },
+              {
+                "name": "Performance Test Requirement Analysis",
+                "score": 0
+              },
+              {
+                "name": "Performance Test Estimation",
+                "score": 0
+              },
+              {
+                "name": "Work Load Profile Design",
+                "score": 0
+              },
+              {
+                "name": "Performance Test Plan Development",
+                "score": 0
+              },
+              {
+                "name": "Performance Test Script Development",
+                "score": 0
+              },
+              {
+                "name": "Performance Test Scenario Development",
+                "score": 0
+              },
+              {
+                "name": "Performance Test Bed Setup",
+                "score": 0
+              },
+              {
+                "name": "Performance Test Executions",
+                "score": 0
+              },
+              {
+                "name": "Performance Test Monitoring",
+                "score": 0
+              },
+              {
+                "name": "Result Analysis  & Bottleneck Identification",
+                "score": 0
+              },
+              {
+                "name": "Performance Test Reporting",
+                "score": 0
+              },
+              {
+                "name": "Capacity Modelling",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "name": "Tools",
+            "total_score":60,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "Jmeter",
+                "score": 0
+              },
+              {
+                "name": "LoadRunner",
+                "score": 0
+              },
+              {
+                "name": "Gattling",
+                "score": 0
+              },
+              {
+                "name": "Grafanna",
+                "score": 0
+              },
+              {
+                "name": "Dynatrace",
+                "score": 0
+              },
+              {
+                "name": "AppDynamics",
+                "score": 0
+              },
+              {
+                "name": "DataDog",
+                "score": 0
+              },
+              {
+                "name": "Splunk",
+                "score": 0
+              },
+              {
+                "name": "AWS Cloud Monitoring",
+                "score": 0
+              },
+              {
+                "name": "Azure Cloud Monitoring",
+                "score": 0
+              },
+              {
+                "name": "ELK",
+                "score": 0
+              },
+              {
+                "name": "Ubik Load Pack",
+                "score": 0
+              },
+              {
+                "name": "Redline13",
+                "score": 0
+              },
+              {
+                "name": "Blazemeter",
+                "score": 0
+              },
+              {
+                "name": "Locust.IO",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Application Security Testing",
+        "total_score":116,
+        "my_score":90,
+        "sub-category": [
+          {
+            "name": "Capability",
+            "total_score":68,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "Web App Security Testing",
+                "score": 0
+              },
+              {
+                "name": "Mobile App Security Testing",
+                "score": 0
+              },
+              {
+                "name": "API Security Testing",
+                "score": 0
+              },
+              {
+                "name": "Living Room Device Security Testing",
+                "score": 0
+              },
+              {
+                "name": "Wearable Security Testing",
+                "score": 0
+              },
+              {
+                "name": "Security Test Requirement Analysis",
+                "score": 0
+              },
+              {
+                "name": "Security Test Estimation",
+                "score": 0
+              },
+              {
+                "name": "Threat Modelling",
+                "score": 0
+              },
+              {
+                "name": "Security Test Plan Development",
+                "score": 0
+              },
+              {
+                "name": "Security Test Script Development",
+                "score": 0
+              },
+              {
+                "name": "Vulnerability Analysis",
+                "score": 0
+              },
+              {
+                "name": "Security Test Reporting",
+                "score": 0
+              },
+              {
+                "name": "Compliance Checks",
+                "score": 0
+              },
+              {
+                "name": "SCA",
+                "score": 0
+              },
+              {
+                "name": "SAST",
+                "score": 0
+              },
+              {
+                "name": "DAST",
+                "score": 0
+              },
+              {
+                "name": "Pen Testing",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "name": "Tools",
+            "total_score":48,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "ZAP",
+                "score": 0
+              },
+              {
+                "name": "BurpSuite",
+                "score": 0
+              },
+              {
+                "name": "WebInspect",
+                "score": 0
+              },
+              {
+                "name": "Sonarcube / SonarCloud",
+                "score": 0
+              },
+              {
+                "name": "Verracode",
+                "score": 0
+              },
+              {
+                "name": "Snyk",
+                "score": 0
+              },
+              {
+                "name": "Lacework",
+                "score": 0
+              },
+              {
+                "name": "Playbook",
+                "score": 0
+              },
+              {
+                "name": "Fortify",
+                "score": 0
+              },
+              {
+                "name": "Appscan",
+                "score": 0
+              },
+              {
+                "name": "Sceret Scanner",
+                "score": 0
+              },
+              {
+                "name": "MobSF",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DevOps",
+        "total_score":132,
+        "my_score":80,
+        "sub-category": [
+          {
+            "name": "Capability",
+            "total_score":28,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "Develop Pipeline Scripts",
+                "score": 0
+              },
+              {
+                "name": "Containerization",
+                "score": 0
+              },
+              {
+                "name": "Configure & Deploy IaC Scripts",
+                "score": 0
+              },
+              {
+                "name": "Pipeline Setup & Execution",
+                "score": 0
+              },
+              {
+                "name": "Setup Monitoring Probes",
+                "score": 0
+              },
+              {
+                "name": "Analyze & Fix Pipeline Failures",
+                "score": 0
+              },
+              {
+                "name": "Setup Alerts",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "name": "Tools",
+            "total_score":88,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "Github",
+                "score": 0
+              },
+              {
+                "name": "GitLab",
+                "score": 0
+              },
+              {
+                "name": "Bitbucket",
+                "score": 0
+              },
+              {
+                "name": "Jenkins",
+                "score": 0
+              },
+              {
+                "name": "AWS Code Deploy",
+                "score": 0
+              },
+              {
+                "name": "Azure Code Deploy",
+                "score": 0
+              },
+              {
+                "name": "Github Action",
+                "score": 0
+              },
+              {
+                "name": "Bamboo",
+                "score": 0
+              },
+              {
+                "name": "Circle CI",
+                "score": 0
+              },
+              {
+                "name": "Argos CD",
+                "score": 0
+              },
+              {
+                "name": "Maven",
+                "score": 0
+              },
+              {
+                "name": "Gradle",
+                "score": 0
+              },
+              {
+                "name": "Ansible",
+                "score": 0
+              },
+              {
+                "name": "Terraform",
+                "score": 0
+              },
+              {
+                "name": "Harness.io",
+                "score": 0
+              },
+              {
+                "name": "Docker",
+                "score": 0
+              },
+              {
+                "name": "Kubernetes",
+                "score": 0
+              },
+              {
+                "name": "OpenShift",
+                "score": 0
+              },
+              {
+                "name": "Azure Container Run",
+                "score": 0
+              },
+              {
+                "name": "Jforg Artifactory",
+                "score": 0
+              },
+              {
+                "name": "AWS ECR",
+                "score": 0
+              },
+              {
+                "name": "Azure datafactory",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "name": "Platform",
+            "total_score":16,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "AWS Cloud",
+                "score": 0
+              },
+              {
+                "name": "Azure Cloud",
+                "score": 0
+              },
+              {
+                "name": "GCP",
+                "score": 0
+              },
+              {
+                "name": "Alibaba",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Enterprise Application",
+        "total_score":92,
+        "my_score":30,
+        "sub-category": [
+          {
+            "name": "Capability",
+            "total_score":92,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "SFDC",
+                "score": 0
+              },
+              {
+                "name": "SAP - SD",
+                "score": 0
+              },
+              {
+                "name": "SAP - MM",
+                "score": 0
+              },
+              {
+                "name": "SAP -- FICO",
+                "score": 0
+              },
+              {
+                "name": "SAP - HCM",
+                "score": 0
+              },
+              {
+                "name": "SAP - PP",
+                "score": 0
+              },
+              {
+                "name": "SAP - CRM",
+                "score": 0
+              },
+              {
+                "name": "SAP S4 Hana",
+                "score": 0
+              },
+              {
+                "name": "SAP Ariba",
+                "score": 0
+              },
+              {
+                "name": "SAP Fiori",
+                "score": 0
+              },
+              {
+                "name": "Microsoft Dynamics 365",
+                "score": 0
+              },
+              {
+                "name": "Oracle eBiz",
+                "score": 0
+              },
+              {
+                "name": "Workday",
+                "score": 0
+              },
+              {
+                "name": "Zoho",
+                "score": 0
+              },
+              {
+                "name": "Service Now",
+                "score": 0
+              },
+              {
+                "name": "Sabre",
+                "score": 0
+              },
+              {
+                "name": "Amdocs",
+                "score": 0
+              },
+              {
+                "name": "Amadeus",
+                "score": 0
+              },
+              {
+                "name": "Finacle",
+                "score": 0
+              },
+              {
+                "name": "Flexcube",
+                "score": 0
+              },
+              {
+                "name": "T24",
+                "score": 0
+              },
+              {
+                "name": "TSYS",
+                "score": 0
+              },
+              {
+                "name": "Avaloq",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Communication",
+        "total_score":44,
+        "my_score":20,
+        "sub-category": [
+          {
+            "name": "Interpersonal",
+            "total_score":44,
+            "my_score":0,
+            "concern": [
+              {
+                "name": "Customer Management - Verbal",
+                "score": 0
+              },
+              {
+                "name": "Customer Management - Email",
+                "score": 0
+              },
+              {
+                "name": "Team Management",
+                "score": 0
+              },
+              {
+                "name": "People Management",
+                "score": 0
+              },
+              {
+                "name": "Time Management",
+                "score": 0
+              },
+              {
+                "name": "Presentation Skills",
+                "score": 0
+              },
+              {
+                "name": "Presentation Decks (Powerpoint, Keynote)",
+                "score": 0
+              },
+              {
+                "name": "WhitePaper",
+                "score": 0
+              },
+              {
+                "name": "Scribe MoM",
+                "score": 0
+              },
+              {
+                "name": "Business Communication - Verbal",
+                "score": 0
+              },
+              {
+                "name": "Business Communication - Written",
+                "score": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "education": {
+        "School":{
+          "name":"",
+          "year_of_passing":"",
+          "percentage":"",
+          "cgpa":""
+        },
+        "PU":{
+          "name":"",
+          "year_of_passing":"",
+          "percentage":"",
+          "cgpa":""
+        },
+        "UG":[
+        {
+          "name":"",
+          "year_of_passing":"",
+          "percentage":"",
+          "cgpa":"",
+          "course":"",
+          "specialization":""
+        }],
+        "PG":[
+        {
+          "name":"",
+          "year_of_passing":"",
+          "percentage":"",
+          "cgpa":"",
+          "course":"",
+          "specialization":"",
+          "start_date":"",
+          "end_date":""
+        }]
+    },
+    "experience":[
+      {
+        "company_name": " TestBox",
+        "designation": "Engineer",
+        "domain": "OTT",
+        "start_date": "2024-04-08",
+        "end_date": null
+      }
+    ],
+    "certifications":[
+          {
+            "c_name": "ISTQB Foundation",
+            "acquired": true
+          },
+          {
+            "c_name": "ISTQB Test Analysts",
+            "acquired": false
+          },
+          {
+            "c_name": "ISTQB Managerial",
+            "acquired": false
+          },
+          {
+            "c_name": "CSTM",
+            "acquired": false
+          },
+          {
+            "c_name": "PMP",
+            "acquired": false
+          },
+          {
+            "c_name": "Scrum Master Certification",
+            "acquired": true
+          },
+          {
+            "c_name": "AWS",
+            "acquired": false
+          },
+          {
+            "c_name": "Katalon Certification",
+            "acquired": false
+          },
+          {
+            "c_name": "TOSCA Certification",
+            "acquired": false
+          },
+          {
+            "c_name": "CEH",
+            "acquired": false
+          },
+          {
+            "c_name": "CISSP",
+            "acquired": false
+          },
+          {
+            "c_name": "Azure",
+            "acquired": false
+          },
+          {
+            "c_name": "GCP",
+            "acquired": false
+          },
+          {
+            "c_name": "Selenium Certification",
+            "acquired": false
+          },
+          {
+            "c_name": "UFT One CPC",
+            "acquired": false
+          },
+          {
+            "c_name": "QTP CPC",
+            "acquired": false
+          }
+    ]
+  }
+}

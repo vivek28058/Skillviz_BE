@@ -1,0 +1,41 @@
+{
+
+  "Hierarchy_Progression": [
+    {
+      "Type": "Engineering",
+      "Progression": {
+        "10": "Trainee Consultant",
+        "20": "Test Associate",
+        "30": "Test Engineer",
+        "40": "Sr.Test Engineer",
+        "50": "Test Lead"
+      }
+    },
+    {
+      "Type": "Management",
+      "Progression": [
+        {
+          "61": "Test Manager",
+          "71": "Sr.Test Manager",
+          "81": "Project Manager",
+          "91": "Sr.Project Manager",
+          "101": "Program Manager",
+          "105":"Resource Manager",
+          "111": "VP",
+          "id": "m1",
+          "name": "People Management"
+        },
+        {
+          "60": "Test Specialist",
+          "70": "Test Expert",
+          "80": "Functional Architect",
+          "90": "Sr.Functional Architect",
+          "100": "Principal Test Consultant",
+          "110": "Practice Head",
+          "id": "m2",
+          "name": "Technical Management"
+        }
+      ]
+    }
+  ]
+}

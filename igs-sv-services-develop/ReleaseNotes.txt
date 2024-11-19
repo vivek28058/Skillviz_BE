@@ -1,0 +1,32 @@
+17/April/2024
+----------------
+
+Todos
+----------------
+***     Total Users in the Admin Analytics (done)
+***     Histogram map (Admin) (done) 
+****    Upload all user data (is_virgin) (done)
+***     Temporary Password (done)
+****    Assign user to sv_employees by creating a new doc and assigning the master data
+****    Change master data  
+***     Login 
+***     Change Password
+***     Nav to Dashboard Post Login
+
+** User Management
+ - Disable employees
+ - Make Admin
+
+**** Search
+(Select Cat, Sub-Category and Skills) - Multi-select
+
+** Quadrant map (Users and Admin)
+ Business, Capability, Tools, Interpersonal 
+ - B.E Service
+ - F.E Map Development
+
+* Pyramid (Admin) 
+ percentange over employee count
+
+* Camera/Upload for photo
+* Later bulk-upload for photo

@@ -1,0 +1,226 @@
+{
+    "top_5_skills": [
+        {
+            "rank":1,
+            "name":"Test Reporting",
+            "percentage":"78.8"
+        },
+        {
+            "rank":2,
+            "name":"Test Execution",
+            "percentage":"77.3"
+        },
+        {
+            "rank":3,
+            "name":"Application Security Testing",
+            "percentage":"75.9"
+        },
+        {
+            "rank":4,
+            "name":"Methodology",
+            "percentage":"74.4"
+        },
+        {
+            "rank":5,
+            "name":"Performance Engineering",
+            "percentage":"72.2"
+        },
+        {
+            "rank":6,
+            "name":"Requirements Analysis",
+            "percentage":"71.2"
+        },
+        {
+            "rank":7,
+            "name":"Business Domain",
+            "percentage":"69.5"
+        },
+        {
+            "rank":8,
+            "name":"Test Management",
+            "percentage":"69.2"
+        },
+        {
+            "rank":9,
+            "name":"Test Type",
+            "percentage":"67.9"
+        },
+        {
+            "rank":10,
+            "name":"Test Automation",
+            "percentage":"66.5"
+        },
+        {
+            "rank":11,
+            "name":"Service Virtualization",
+            "percentage":"61.4"
+        },
+        {
+            "rank":12,
+            "name":"TDM",
+            "percentage":"60.7"
+        },
+        {
+            "rank":13,
+            "name":"Communication",
+            "percentage":"59.1"
+        },
+        {
+            "rank":14,
+            "name":"DevOps",
+            "percentage":"45.8"
+        },
+        {
+            "rank":15,
+            "name":"Enterprise Application",
+            "percentage":"43.0"
+        }
+    ],
+    "chart_ac_ex_data":[
+        {
+            "name":"Business Domain",
+            "actual":695,
+            "expected":1000
+        },
+        {
+            "name":"Methodology",
+            "actual":119,
+            "expected":160
+        },
+        {
+            "name":"Test Type",
+            "actual":258,
+            "expected":380
+        },
+        {
+            "name":"Requirement Analysis",
+            "actual":242,
+            "expected":340
+        },
+        {
+            "name":"Test Management",
+            "actual":332,
+            "expected":480
+        },
+        {
+            "name":"Test Automation",
+            "actual":692,
+            "expected":1040
+        },
+        {
+            "name":"Service Virtualization",
+            "actual":86,
+            "expected":140
+        },
+        {
+            "name":"TDM",
+            "actual":85,
+            "expected":140
+        },
+        {
+            "name":"Test Execution",
+            "actual":201,
+            "expected":260
+        },
+        {
+            "name":"Test Reporting",
+            "actual":63,
+            "expected":80
+        },
+        {
+            "name":"Performance Engineering",
+            "actual":462,
+            "expected":640
+        },
+        {
+            "name":"Application Security Testing",
+            "actual":440,
+            "expected":580
+        },
+        {
+            "name":"DevOps",
+            "actual":302,
+            "expected":660
+        },
+        {
+            "name":"Enterprise Application",
+            "actual":198,
+            "expected":460
+        },
+        {
+            "name":"Communication",
+            "actual":130,
+            "expected":220
+        }
+    ],
+    "certification_aggregates":[
+        {
+            "name":"ISTQB Foundation",
+            "percentage":"50"
+        },
+        {
+            "name":"ISTQB Test Analysts",
+            "percentage":"33.2"
+        },
+        {
+            "name":"ISTQB Managerial",
+            "percentage":"15.6"
+        },
+        {
+            "name":"CSTM",
+            "percentage":"0"
+        },
+        {
+            "name":"PMP",
+            "percentage":"3.5"
+        },
+        {
+            "name":"Scrum Master Certification",
+            "percentage":"6.5"
+        },
+        {
+            "name":"AWS",
+            "percentage":"10.0"
+        },
+        {
+            "name":"Katalon Certification",
+            "percentage":"0"
+        },
+        {
+            "name":"TOSCA Certification",
+            "percentage":"0"
+        },
+        {
+            "name":"GenRocket Certification",
+            "percentage":"0"
+        },
+        {
+            "name":"CEH",
+            "percentage":"0"
+        },
+        {
+            "name":"CISSP",
+            "percentage":"0"
+        },
+        {
+            "name":"Azure",
+            "percentage":"2"
+        },
+        {
+            "name":"GCP",
+            "percentage":"3"
+        },
+        {
+            "name":"Selenium Certification",
+            "percentage":"18.6"
+        },
+        {
+            "name":"UFT One CPC",
+            "percentage":"0"
+        },
+        {
+            "name":"QTP CPC",
+            "percentage":"0"
+        }
+    ] 
+}

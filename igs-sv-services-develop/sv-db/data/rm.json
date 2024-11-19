@@ -1,0 +1,11 @@
+{
+  "First_Name": "Ranganath",
+  "Last_Name": "Bob",
+  "Email": "ranganath.bob@igsindia.net",
+  "Designation": "ORG Resource Manager",
+  "Role": "Admin",
+  "is_Active": 1,
+  "is_Virgin": 0,
+  "Hierarchy_Map": 105,
+  "Password": "igs@2024"
+}
