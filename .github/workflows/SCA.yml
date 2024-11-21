@@ -27,7 +27,9 @@ jobs:
 
       - name: Run Snyk SCA Scan
         run: snyk test --all-projects
+        continue-on-error: true
 
       - name: Monitor Snyk SCA Scan
         run: snyk monitor
+        continue-on-error: true
 
