@@ -26,4 +26,5 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
       - name: Run Snyk SCA Scan
-        run: snyk test --maven
+        run: snyk test --all-projects
+
