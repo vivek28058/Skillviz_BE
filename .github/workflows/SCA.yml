@@ -28,3 +28,6 @@ jobs:
       - name: Run Snyk SCA Scan
         run: snyk test --all-projects
 
+      - name: Monitor Snyk SCA Scan
+        run: snyk monitor
+
