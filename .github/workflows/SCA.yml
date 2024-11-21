@@ -1,4 +1,4 @@
-name: Build
+name: Sonar and Snyk scan
 on:
   push:
     branches:
