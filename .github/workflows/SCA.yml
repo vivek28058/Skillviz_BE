@@ -30,6 +30,6 @@ jobs:
         continue-on-error: true
 
       - name: Monitor Snyk SCA Scan
-        run: snyk monitor
+        run: snyk monitor --all-projects
         continue-on-error: true
 
