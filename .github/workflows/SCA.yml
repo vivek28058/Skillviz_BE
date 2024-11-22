@@ -7,6 +7,9 @@ jobs:
   sonarcloud:
     name: SonarQube Cloud
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,4 +35,9 @@ jobs:
       - name: Monitor Snyk SCA Scan
         run: snyk monitor --all-projects
         continue-on-error: true
+
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.11.0
+        with:
+         target: 'http://www.itsecgames.com/'
 
