@@ -1,11 +1,11 @@
-name: Sonar and Snyk scan
+name: Security Scans
 on:
   push:
     branches:
       - main
 jobs:
-  sonarcloud:
-    name: SonarQube Cloud
+  Security:
+    name: Security Scans
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -13,9 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0 
 
-      - name: SonarQube Cloud Scan
+      - name: SonarQube Source Code Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -28,7 +28,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
-      - name: Run Snyk SCA Scan
+      - name: Run Snyk Dependencies Scan
         run: snyk test --all-projects
         continue-on-error: true
 
@@ -36,7 +36,7 @@ jobs:
         run: snyk monitor --all-projects
         continue-on-error: true
 
-      - name: ZAP Scan
+      - name: ZAP Dynamic Analysis Scan
         uses: zaproxy/action-full-scan@v0.11.0
         with:
          target: 'http://49.249.95.65:4072/'
