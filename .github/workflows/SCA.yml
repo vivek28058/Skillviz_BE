@@ -41,4 +41,4 @@ jobs:
         with:
           target: 'https://mlshoppreprod.mlhuillier.com/jewelryback/Account/OrderDetails?OrderNumber=MLMDKEXTVBL&OrderId=O20241007135949882172'
           rules_file_name: '.github/workflows/rules.zap'
-          allow_issue_writing: 'false'
+    
