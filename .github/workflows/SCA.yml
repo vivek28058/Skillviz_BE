@@ -39,6 +39,6 @@ jobs:
       - name: ZAP Dynamic Analysis Scan
         uses: zaproxy/action-full-scan@v0.12.0
         with:
-          target: 'https://mlshoppreprod.mlhuillier.com/jewelryback/Account/OrderDetails?OrderNumber=MLMDKEXTVBL&OrderId=O20241007135949882172'
+          target: 'http://www.itsecgames.com/'
           rules_file_name: '.github/workflows/rules.zap'
     
