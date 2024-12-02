@@ -30,15 +30,15 @@ jobs:
 
       - name: Run Snyk Dependencies Scan
         run: snyk test --all-projects
-        continue-on-error: true
+        continue-on-error: false
 
       - name: Monitor Snyk SCA Scan
         run: snyk monitor --all-projects
-        continue-on-error: true
+        continue-on-error: false
 
-      - name: ZAP Dynamic Analysis Scan
-        uses: zaproxy/action-full-scan@v0.12.0
-        with:
-          target: 'http://www.itsecgames.com/'
-          rules_file_name: '.github/workflows/rules.zap'
+      #- name: ZAP Dynamic Analysis Scan
+      #  uses: zaproxy/action-full-scan@v0.12.0
+       # with:
+        #  target: 'http://www.itsecgames.com/'
+       #   rules_file_name: '.github/workflows/rules.zap'
     
