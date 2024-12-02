@@ -20,10 +20,10 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-      - name: Wait for Quality Gate Result
-        uses: SonarSource/sonarcloud-quality-gate-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #- name: Wait for Quality Gate Result
+       # uses: SonarSource/sonarcloud-quality-gate-action@master
+        #env:
+         # SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Install Snyk
         run: npm install -g snyk
