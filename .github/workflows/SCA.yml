@@ -44,7 +44,7 @@ jobs:
         continue-on-error: true
 
       - name: Debug Files in Docker
-        run: ls -la /zap/wrk/.github/workflows/
+        run: ls -la .github/workflows/
 
 
       - name: ZAP Dynamic Analysis Scan
