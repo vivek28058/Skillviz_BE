@@ -1,25 +1,25 @@
 pipeline {
-    agent { label 'ubuntu' }  // Use the appropriate label for your agent
-    
+    agent any
+
     environment {
         SONAR_TOKEN = credentials('sonar-token-id')  // Use Jenkins credentials for SonarQube token
         SNYK_TOKEN = credentials('snyk-token-id')    // Use Jenkins credentials for Snyk token
     }
-    
+
     stages {
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
-                checkout scm  // Checkout the repository
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/vivek28058/Skillviz_BE.git'
             }
         }
-        
+
         stage('SonarQube Source Code Scan') {
             steps {
                 script {
                     sh """
                     sonar-scanner \
-                    -Dsonar.projectKey=my-project-key \
-                    -Dsonar.organization=my-org \
+                    -Dsonar.projectKey=vivek28058_Skillviz_BE \
+                    -Dsonar.organization=vivek28058 \
                     -Dsonar.host.url=https://sonarcloud.io \
                     -Dsonar.login=${SONAR_TOKEN}
                     """
@@ -27,21 +27,9 @@ pipeline {
             }
         }
 
-        /* 
-        stage('SonarQube Quality Gate Check') {
-            steps {
-                script {
-                    sh 'curl -u ${SONAR_TOKEN}: https://sonarcloud.io/api/qualitygates/project_status?projectKey=my-project-key'
-                }
-            }
-        }
-        */
-        
         stage('Install Snyk') {
             steps {
-                script {
-                    sh 'npm install -g snyk'
-                }
+                sh 'npm install -g snyk'
             }
         }
 
@@ -91,10 +79,10 @@ pipeline {
             }
         }
     }
-    
+
     post {
         always {
-            // Cleanup or notifications after the pipeline completes
+            echo 'Pipeline completed, performing cleanup tasks if needed.'
         }
     }
 }
