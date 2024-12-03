@@ -49,7 +49,7 @@ jobs:
           target: 'https://bwapp.hakhub.net/'
           #rules_file_name: '.github/workflows/rules.zap'
           cmd_options: >
-            -configfile .github/workflows/bwapp.context
+            -configfile /zap/wrk/.github/workflows/bwapp.context
             -config api.addrs.addr.name=.* 
             -config api.addrs.addr.regex=true
           
