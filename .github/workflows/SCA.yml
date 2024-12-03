@@ -48,9 +48,9 @@ jobs:
         with:
           target: 'https://bwapp.hakhub.net/'
           #rules_file_name: '.github/workflows/rules.zap'
-          context_file_name: '.github/workflows/bwapp.context'
-          auth_user: vivek        # GitHub secret for username
-          auth_password: vivek # GitHub secret for password
-          zap_options: '-config api.addrs.addr.name=.* -config api.addrs.addr.regex=true'
+          cmd_options: >
+            -configfile .github/workflows/bwapp.context
+            -config api.addrs.addr.name=.* 
+            -config api.addrs.addr.regex=true
           
     
