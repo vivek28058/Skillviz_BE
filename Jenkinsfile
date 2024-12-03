@@ -21,7 +21,7 @@ pipeline {
                     -Dsonar.projectKey=vivek28058_Skillviz_BE \
                     -Dsonar.organization=vivek28058 \
                     -Dsonar.host.url=https://sonarcloud.io \
-                    -Dsonar.login=${SONAR_TOKEN}
+                    -Dsonar.login='sonar-token-id'
                     """
                 }
             }
