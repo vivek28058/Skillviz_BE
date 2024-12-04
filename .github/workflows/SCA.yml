@@ -127,7 +127,7 @@ jobs:
           echo "Uploading $apk_file to MobSF..."
 
           # Upload to MobSF and get the scan results
-          response=$(curl -s -X POST "$MOBSF_URL/api/v1/upload" \
+          response=$(curl -v -X POST "$MOBSF_URL/api/v1/upload" \
             -H "Authorization: ${{ secrets.MOBSF_API_KEY }}" \
             -F "file=@$apk_file" \
             --max-time 300)
