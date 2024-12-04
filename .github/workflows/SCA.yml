@@ -94,7 +94,7 @@ jobs:
       - name: ZAP Dynamic Analysis Scan
         uses: zaproxy/action-full-scan@v0.12.0
         with:
-          target: 'https://bwapp.hakhub.net/'
+          target: 'http://www.itsecgames.com/'
           rules_file_name: '.github/workflows/rules.zap'
           cmd_options: '-J zap_report.json'
 
@@ -107,21 +107,24 @@ jobs:
         shell: bash
 
 
-      - name: Check ZAP Scan Issues
+      - name: Check for Alerts with riskcode >= 2
         id: zap-check
         run: |
-          medium_issues=$(jq '[.site[].alerts[] | select(.risk == "Medium")] | length' zap_report.json)
-          high_issues=$(jq '[.site[].alerts[] | select(.risk == "High")] | length' zap_report.json)
+          if [ ! -f zap_report.json ]; then
+            echo "ZAP JSON report not found. Ensure the scan completed successfully."
+            exit 1
+           fi
 
-          echo "Medium issues: $medium_issues"
-          echo "High issues: $high_issues"
+          # Check for alerts with riskcode >= 2
+          high_risk_alerts=$(jq '[.site[].alerts[] | select(.riskcode >= 2)] | length' zap_report.json)
 
-          total_issues=$((medium_issues + high_issues))
-          if [ "$total_issues" -gt 0 ]; then
-            echo "Job failed: Found $total_issues medium and high severity issues."
+          echo "Found $high_risk_alerts alerts with riskcode >= 2"
+
+          if [ "$high_risk_alerts" -gt 0 ]; then
+            echo "Job failed: Found $high_risk_alerts alerts with riskcode >= 2."
             exit 1
           else
-            echo "No medium or high severity issues found. Job passed."
+            echo "No alerts with riskcode >= 2 found. Job passed."
           fi
         shell: bash
 
