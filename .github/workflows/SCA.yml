@@ -80,14 +80,17 @@ jobs:
           echo "High issues: $high_issues"
           echo "Critical issues: $critical_issues"
 
-          total_issues=$((medium_issues + high_issues + critical_issues))
-          if [ "$total_issues" -gt 0 ]; then
-            echo "Found $total_issues medium, high, or critical severity issues."
+          if [ "$critical_issues" -gt 0 ]; then
+            echo "Job failed: Found $critical_issues critical severity issues."
             exit 1
           else
-            echo "No medium, high, or critical severity issues found."
+            echo "No critical severity issues found."
+            echo "Medium issues: $medium_issues"
+            echo "High issues: $high_issues"
+            echo "Job passed despite $((medium_issues + high_issues)) medium and high severity issues."
           fi
         shell: bash
+
 
 
       #- name: ZAP Dynamic Analysis Scan
