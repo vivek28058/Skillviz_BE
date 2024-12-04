@@ -119,7 +119,7 @@ jobs:
       
       - name: MobSF APK Scan
         env:
-          MOBSF_URL: "http://localhost:8000"
+          MOBSF_URL: "http://172.17.0.2:8000"
           MOBSF_API_KEY: "${{ secrets.MOBSF_API_KEY }}"
         run: |
           apk_file=$(find . -type f -name "sample.apk" | head -n 1) # Searching for 'sample.apk' in the repo
