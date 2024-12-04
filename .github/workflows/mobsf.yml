@@ -24,7 +24,7 @@ jobs:
           flutter-version: '1.9.1+hotfix.6'
 
       - name: Flutter Install Dependencies
-      - run: flutter pub get
+        run: flutter pub get
 
       - name: Flutter Test
         run: flutter test
@@ -35,18 +35,25 @@ jobs:
       - name: Run MobSF Analysis
         uses: fundacaocerti/mobsf-action@v1.7.2
         env:
-          INPUT_FILE_NAME: sample.apk
+          INPUT_FILE_NAME: build/app/outputs/apk/app.apk  # Correct APK path
           SCAN_TYPE: apk
           OUTPUT_FILE_NAME: mobsf-report
+        run: |
+          docker run --user root --name mobsf_scan --rm \
+            -e "INPUT_FILE_NAME=${{ env.INPUT_FILE_NAME }}" \
+            -e "SCAN_TYPE=${{ env.SCAN_TYPE }}" \
+            -e "OUTPUT_FILE_NAME=${{ env.OUTPUT_FILE_NAME }}" \
+            -v ${{ github.workspace }}:/workspace \
+            fundacaocerti/mobsf-action:1.7.2
 
       - name: Upload MobSF Analysis PDF Result
         uses: actions/upload-artifact@v2
         with:
           name: mobsf-report.pdf
-          path: mobsf-report.pdf
+          path: mobsf-report.pdf  # Ensure this path matches the output from MobSF
 
       - name: Upload MobSF Analysis JSON Result
         uses: actions/upload-artifact@v2
         with:
           name: mobsf-report.json
-          path: mobsf-report.json
+          path: mobsf-report.json  # Ensure this path matches the output from MobSF
