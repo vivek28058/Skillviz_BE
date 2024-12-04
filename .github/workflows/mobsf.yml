@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - '**/*.apk'  # Trigger only for APK files
-
 jobs:
   scan:
     runs-on: ubuntu-latest
