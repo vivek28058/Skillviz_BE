@@ -38,7 +38,7 @@ jobs:
           response=$(curl -s -X POST "$MOBSF_URL/api/v1/upload" \
             -H "Authorization: ${{ secrets.MOBSF_API_KEY }}" \
             -F "file=@$apk_file" \
-            --max-time 300)
+            --max-time 50)
 
           # Check if upload was successful and initiate the scan
           scan_url=$(echo $response | jq -r '.scan_url')
