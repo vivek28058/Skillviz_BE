@@ -1,0 +1,51 @@
+name: Run MobSF in Docker
+
+on:
+  push:
+    branches:
+      - main  # or your branch
+
+jobs:
+  mobsf-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Set up Docker Buildx (if you plan on building images or need it for any reason)
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+
+      # Check out the code
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Run MobSF in Docker and upload APK for scanning
+      - name: Run MobSF in Docker
+        run: |
+          # Run MobSF Docker container in detached mode
+          docker run -d --name mobsf -p 8000:8000 \
+            -v $(pwd):/src \
+            --env MOBSF_API_KEY=${{ secrets.MOBSF_API_KEY }} \
+            opensecurity/mobsf:latest
+          
+          # Wait for MobSF to start up (adjust sleep duration if necessary)
+          sleep 30  # Allow MobSF to initialize, adjust if needed
+
+          # Upload APK file to MobSF for scanning
+          apk_file=$(find . -type f -name "*.apk" | head -n 1)
+          if [ -z "$apk_file" ]; then
+            echo "No APK file found. Skipping MobSF scan."
+            exit 0
+          fi
+          
+          echo "Uploading $apk_file to MobSF..."
+          curl -X POST "http://localhost:8000/api/v1/upload" \
+            -H "Authorization: ${{ secrets.MOBSF_API_KEY }}" \
+            -F "file=@$apk_file" --max-time 300
+
+          # Check the scan result and output it
+          echo "MobSF scan initiated. Check the results in the MobSF UI or logs."
+        
+        # Run the above steps in bash shell
+        shell: /usr/bin/bash -e {0}
+
+      # Optionally, you can add steps to clean up or take further actions (e.g., saving results or stopping the container)
