@@ -96,8 +96,7 @@ jobs:
         with:
           target: 'https://bwapp.hakhub.net/'
           rules_file_name: '.github/workflows/rules.zap'
-          format: 'json'  # Output the result in JSON format
-          report_file_name: 'zap_report.json'  # Save the report to a file
+          cmd_options: '-J zap_report.json'
 
       - name: Debug ZAP JSON Output
         run: |
