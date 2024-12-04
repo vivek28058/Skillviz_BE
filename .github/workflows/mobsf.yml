@@ -1,56 +1,23 @@
-name: Run MobSF in Docker
+name: MobSF Scan
 
 on:
   push:
     branches:
-      - main  # or your branch
+      - main
+    paths:
+      - '**/*.apk'  # Trigger only for APK files
 
 jobs:
-  run_mobsf_scan:
+  scan:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the code
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Step 2: Docker Login (optional if you need to authenticate to Docker registry)
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      - name: Docker Login (if pulling private image)
-        uses: docker/login-action@v2
+      - name: Set up MobSF Scanner
+        uses: rishabhkumar/mobsf-action@v1
         with:
-          username: vivek2426
-          password: Subbi$2426
-
-      # Step 3: Run MobSF in Docker container
-      - name: Run MobSF APK Scan
-        run: |
-          apk_file=$(find . -type f -name "sample.apk" | head -n 1) # Searching for 'sample.apk' in the repo
-          if [ -z "$apk_file" ]; then
-            echo "No APK file found. Skipping MobSF scan."
-            exit 0
-          fi
-          echo "Uploading $apk_file to MobSF..."
-
-          # Upload to MobSF and get the scan results
-          response=$(curl -s -X POST "$MOBSF_URL/api/v1/upload" \
-            -H "Authorization: ${{ secrets.MOBSF_API_KEY }}" \
-            -F "file=@$apk_file" \
-            --max-time 50)
-
-          # Check if upload was successful and initiate the scan
-          scan_url=$(echo $response | jq -r '.scan_url')
-          if [ "$scan_url" == "null" ]; then
-            echo "Error during MobSF upload: $response"
-            exit 1
-          fi
-          echo "Scan initiated. View the results at: $scan_url"
-          
-          # Save the result for later use
-          echo $response > mobsf_scan_result.json
-          
-        env:
-          MOBSF_URL: http://12.12.12.37:8000  # Replace with your MobSF server's IP or domain
-          MOBSF_API_KEY: ${{ secrets.MOBSF_API_KEY }}
+          api_key: ${{ secrets.MOBSF_API_KEY }}  # Your MobSF API Key (set this in GitHub Secrets)
+          apk_file: './sample.apk'    # Adjust the file path as needed
+          mobsf_url: 'http://12.12.12.37:8000'  # Your MobSF URL (if it's hosted locally or in a Docker container)
