@@ -45,6 +45,15 @@ jobs:
           snyk test --all-projects --json > snyk_report.json || true
         shell: bash
 
+      - name: Debug Snyk JSON Output
+        run: |
+          echo "Printing snyk_report.json:"
+          cat snyk_report.json
+          echo "Formatted output using jq:"
+          jq '.' snyk_report.json
+        shell: bash
+
+
       - name: Check for Medium or Higher Severity Issues
         id: snyk-check
         run: |
