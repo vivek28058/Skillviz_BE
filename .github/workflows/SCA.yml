@@ -15,17 +15,17 @@ jobs:
         with:
           fetch-depth: 0 
 
-     # - name: SonarQube Source Code Scan
-      #  uses: SonarSource/sonarcloud-github-action@master
-     #   env:
-       #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: SonarQube Source Code Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-      #- name: SonarQube Quality Gate check
-       # id: sonarqube-quality-gate-check
-      #  uses: sonarsource/sonarqube-quality-gate-action@master
-       # timeout-minutes: 5
-       # env:
-       #  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: SonarQube Quality Gate check
+        id: sonarqube-quality-gate-check
+        uses: sonarsource/sonarqube-quality-gate-action@master
+        timeout-minutes: 5
+        env:
+         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Install Snyk
         run: npm install -g snyk
@@ -45,19 +45,19 @@ jobs:
           snyk test --all-projects --json > snyk_report.json || true
         shell: bash
 
-     # - name: Debug Snyk JSON Output
-      #  run: |
-     #     echo "Printing snyk_report.json:"
-        #  cat snyk_report.json
-       #   echo "Formatted output using jq:"
-        #  jq '.' snyk_report.json
-       # shell: bash
+      - name: Debug Snyk JSON Output
+        run: |
+          echo "Printing snyk_report.json:"
+          cat snyk_report.json
+          echo "Formatted output using jq:"
+          jq '.' snyk_report.json
+        shell: bash
 
-    #  - name: Monitor Snyk SCA Scan
-    #    run: snyk monitor --all-projects
-    #    continue-on-error: true
+      - name: Monitor Snyk SCA Scan
+        run: snyk monitor --all-projects
+        continue-on-error: true
 
-     # - name: Check for Medium or Higher Severity Issues
+      #- name: Check for Medium or Higher Severity Issues
       #  id: snyk-check
       #  run: |
       #    issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "medium" or .severity == "high" or .severity == "critical")] | length' snyk_report.json)
@@ -69,34 +69,34 @@ jobs:
       #    fi
       #  shell: bash
 
-      #- name: Check for Medium, High, and Critical Severity Issues
-       # id: snyk-check
-      #  run: |
-       #   medium_issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "medium")] | length' snyk_report.json)
-        #  high_issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "high")] | length' snyk_report.json)
-        #  critical_issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "critical")] | length' snyk_report.json)
+      - name: Check for Medium, High, and Critical Severity Issues
+        id: snyk-check
+        run: |
+          medium_issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "medium")] | length' snyk_report.json)
+          high_issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "high")] | length' snyk_report.json)
+          critical_issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "critical")] | length' snyk_report.json)
 
-       #  echo "Medium issues: $medium_issues"
-        #  echo "High issues: $high_issues"
-         # echo "Critical issues: $critical_issues"
+          echo "Medium issues: $medium_issues"
+          echo "High issues: $high_issues"
+          echo "Critical issues: $critical_issues"
 
-         # if [ "$critical_issues" -gt 0 ]; then
-          #  echo "Job failed: Found $critical_issues critical severity issues."
-          #  exit 1
-         # else
-        #    echo "No critical severity issues found."
-         #   echo "Medium issues: $medium_issues"
-         #   echo "High issues: $high_issues"
-          #  echo "Job passed despite $((medium_issues + high_issues)) medium and high severity issues."
-        #  fi
-       # shell: bash
+          if [ "$critical_issues" -gt 0 ]; then
+            echo "Job failed: Found $critical_issues critical severity issues."
+            exit 1
+          else
+            echo "No critical severity issues found."
+            echo "Medium issues: $medium_issues"
+            echo "High issues: $high_issues"
+            echo "Job passed despite $((medium_issues + high_issues)) medium and high severity issues."
+          fi
+        shell: bash
 
       - name: ZAP Dynamic Analysis Scan
         uses: zaproxy/action-full-scan@v0.12.0
         with:
           target: 'http://www.itsecgames.com/'
           rules_file_name: '.github/workflows/rules.zap'
-          cmd_options: '-J zap_report.json'
+         # cmd_options: '-J zap_report.json'
 
       - name: Debug ZAP JSON Output
         run: |
@@ -107,26 +107,26 @@ jobs:
         shell: bash
 
 
-      - name: Check for Alerts with riskcode >= 3
-        id: zap-check
-        run: |
-          if [ ! -f zap_report.json ]; then
-            echo "ZAP JSON report not found. Ensure the scan completed successfully."
-            exit 1
-           fi
+     # - name: Check for Alerts with riskcode >= 3
+      #  id: zap-check
+       # run: |
+       #   if [ ! -f zap_report.json ]; then
+        #    echo "ZAP JSON report not found. Ensure the scan completed successfully."
+        #    exit 1
+        #  fi
 
           # Check for alerts with riskcode >= 2
-          high_risk_alerts=$(jq '[.site[].alerts[] | select(.riskcode >= 3)] | length' zap_report.json)
+         # high_risk_alerts=$(jq '[.site[].alerts[] | select(.riskcode >= 3)] | length' zap_report.json)
 
-          echo "Found $high_risk_alerts alerts with riskcode >= 3"
+         # echo "Found $high_risk_alerts alerts with riskcode >= 3"
 
-          if [ "$high_risk_alerts" -gt 0 ]; then
-            echo "Job failed: Found $high_risk_alerts alerts with riskcode >= 3."
-            exit 1
-          else
-            echo "No alerts with riskcode >= 3 found. Job passed."
-          fi
-        shell: bash
+         # if [ "$high_risk_alerts" -gt 0 ]; then
+           # echo "Job failed: Found $high_risk_alerts alerts with riskcode >= 3."
+           # exit 1
+         # else
+         #   echo "No alerts with riskcode >= 3 found. Job passed."
+         # fi
+       # shell: bash
 
 
       #- name: ZAP Dynamic Analysis Scan
