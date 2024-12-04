@@ -15,10 +15,10 @@ jobs:
         with:
           fetch-depth: 0 
 
-     # - name: SonarQube Source Code Scan
-     #   uses: SonarSource/sonarcloud-github-action@master
-     #   env:
-      #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: SonarQube Source Code Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       #- name: SonarQube Quality Gate check
        # id: sonarqube-quality-gate-check
@@ -53,7 +53,6 @@ jobs:
           jq '.' snyk_report.json
         shell: bash
 
-
       - name: Check for Medium or Higher Severity Issues
         id: snyk-check
         run: |
@@ -65,7 +64,6 @@ jobs:
             echo "No medium or higher severity issues found."
           fi
         shell: bash
-
 
       - name: Monitor Snyk SCA Scan
         run: snyk monitor --all-projects
