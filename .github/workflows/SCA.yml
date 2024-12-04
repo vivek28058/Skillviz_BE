@@ -23,7 +23,7 @@ jobs:
       - name: Generate SonarQube JSON Report
         run: |
           curl -u ${{ secrets.SONAR_TOKEN }}: \
-            "https://sonarcloud.io/api/measures/component_tree?component=vivek28058_Skillviz_BE" \
+            "https://sonarcloud.io/api/measures/component_tree?component=vivek28058_Skillviz_BE&metricKeys=ncloc,complexity,violations,bugs,vulnerabilities,code_smells" \
             -o sonar_report.json
         shell: bash
 
