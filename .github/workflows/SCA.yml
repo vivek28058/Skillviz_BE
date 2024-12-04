@@ -53,6 +53,10 @@ jobs:
           jq '.' snyk_report.json
         shell: bash
 
+      - name: Monitor Snyk SCA Scan
+        run: snyk monitor --all-projects
+        continue-on-error: true
+
       - name: Check for Medium or Higher Severity Issues
         id: snyk-check
         run: |
@@ -64,10 +68,6 @@ jobs:
             echo "No medium or higher severity issues found."
           fi
         shell: bash
-
-      - name: Monitor Snyk SCA Scan
-        run: snyk monitor --all-projects
-        continue-on-error: true
 
       #- name: ZAP Dynamic Analysis Scan
       #  uses: zaproxy/action-full-scan@v0.12.0
