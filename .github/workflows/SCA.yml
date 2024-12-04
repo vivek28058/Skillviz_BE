@@ -86,11 +86,23 @@ jobs:
           fi
         shell: bash
 
-      - name: ZAP Dynamic Analysis Scan
-        uses: zaproxy/action-full-scan@v0.12.0
+      - name: Upload SonarQube Report
+        uses: actions/upload-artifact@v3
         with:
-          target: 'http://www.itsecgames.com/'
-          rules_file_name: '.github/workflows/rules.zap'
+           name: sonar-report
+           path: sonar_report.json
+
+      - name: Upload Snyk Report
+        uses: actions/upload-artifact@v3
+        with:
+            name: snyk-report
+            path: snyk_report.json
+
+     # - name: ZAP Dynamic Analysis Scan
+      #  uses: zaproxy/action-full-scan@v0.12.0
+      #  with:
+      #    target: 'http://www.itsecgames.com/'
+       #   rules_file_name: '.github/workflows/rules.zap'
        #   cmd_options: '-J zap_report.json'
 
      # - name: Debug ZAP JSON Output
