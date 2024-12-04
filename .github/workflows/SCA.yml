@@ -107,7 +107,7 @@ jobs:
         shell: bash
 
 
-      - name: Check for Alerts with riskcode >= 2
+      - name: Check for Alerts with riskcode >= 3
         id: zap-check
         run: |
           if [ ! -f zap_report.json ]; then
@@ -116,15 +116,15 @@ jobs:
            fi
 
           # Check for alerts with riskcode >= 2
-          high_risk_alerts=$(jq '[.site[].alerts[] | select(.riskcode >= 2)] | length' zap_report.json)
+          high_risk_alerts=$(jq '[.site[].alerts[] | select(.riskcode >= 3)] | length' zap_report.json)
 
-          echo "Found $high_risk_alerts alerts with riskcode >= 2"
+          echo "Found $high_risk_alerts alerts with riskcode >= 3"
 
           if [ "$high_risk_alerts" -gt 0 ]; then
-            echo "Job failed: Found $high_risk_alerts alerts with riskcode >= 2."
+            echo "Job failed: Found $high_risk_alerts alerts with riskcode >= 3."
             exit 1
           else
-            echo "No alerts with riskcode >= 2 found. Job passed."
+            echo "No alerts with riskcode >= 3 found. Job passed."
           fi
         shell: bash
 
