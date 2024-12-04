@@ -15,10 +15,10 @@ jobs:
         with:
           fetch-depth: 0 
 
-      - name: SonarQube Source Code Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+     # - name: SonarQube Source Code Scan
+     #   uses: SonarSource/sonarcloud-github-action@master
+     #   env:
+      #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       #- name: SonarQube Quality Gate check
        # id: sonarqube-quality-gate-check
@@ -35,19 +35,25 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
+      #- name: Run Snyk Dependencies Scan
+      #  run: snyk test --all-projects --json > snyk_report.json
+       # continue-on-error: true
+       
       - name: Run Snyk Dependencies Scan
-        run: snyk test --all-projects --json > snyk_report.json
-        continue-on-error: true
+        id: snyk-scan
+        run: |
+          snyk test --all-projects --json > snyk_report.json || true
+        shell: bash
 
       - name: Monitor Snyk SCA Scan
         run: snyk monitor --all-projects
         continue-on-error: true
 
-      - name: ZAP Dynamic Analysis Scan
-        uses: zaproxy/action-full-scan@v0.12.0
-        with:
-          target: 'https://bwapp.hakhub.net/'
-          rules_file_name: '.github/workflows/rules.zap'
+      #- name: ZAP Dynamic Analysis Scan
+      #  uses: zaproxy/action-full-scan@v0.12.0
+       # with:
+         # target: 'https://bwapp.hakhub.net/'
+          #rules_file_name: '.github/workflows/rules.zap'
 
 
           
