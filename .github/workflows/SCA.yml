@@ -57,7 +57,7 @@ jobs:
       - name: Check for Medium or Higher Severity Issues
         id: snyk-check
         run: |
-          issues=$(jq '[.vulnerabilities[] | select(.severity == "medium" or .severity == "high" or .severity == "critical")] | length' snyk_report.json)
+          issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "medium" or .severity == "high" or .severity == "critical")] | length' snyk_report.json)
           if [ "$issues" -gt 0 ]; then
             echo "Found $issues medium or higher severity issues."
             exit 1
@@ -65,6 +65,7 @@ jobs:
             echo "No medium or higher severity issues found."
           fi
         shell: bash
+
 
       - name: Monitor Snyk SCA Scan
         run: snyk monitor --all-projects
