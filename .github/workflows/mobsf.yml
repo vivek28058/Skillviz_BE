@@ -1,9 +1,10 @@
-name: MobSF Scan
+name: MobSF APK Scan
 
 on:
   push:
     branches:
       - main
+
 jobs:
   scan:
     runs-on: ubuntu-latest
@@ -12,9 +13,24 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up MobSF Scanner
-        uses: rishabhkumar/mobsf-action@v1
-        with:
-          api_key: ${{ secrets.MOBSF_API_KEY }}  # Your MobSF API Key (set this in GitHub Secrets)
-          apk_file: './sample.apk'    # Adjust the file path as needed
-          mobsf_url: 'http://12.12.12.37:8000'  # Your MobSF URL (if it's hosted locally or in a Docker container)
+      - name: Upload APK to MobSF for scanning
+        run: |
+          apk_file=$(find . -type f -name "sample.apk" | head -n 1)
+          if [ -z "$apk_file" ]; then
+            echo "No APK file found. Skipping MobSF scan."
+            exit 0
+          fi
+          echo "Uploading $apk_file to MobSF..."
+          response=$(curl -s -X POST "$MOBSF_URL/api/v1/upload" \
+            -H "Authorization: ${{ secrets.MOBSF_API_KEY }}" \
+            -F "file=@$apk_file" \
+            --max-time 20)
+          scan_url=$(echo $response | jq -r '.scan_url')
+          if [ "$scan_url" == "null" ]; then
+            echo "Error during MobSF upload: $response"
+            exit 1
+          fi
+          echo "Scan initiated. View the results at: $scan_url"
+        env:
+          MOBSF_URL: http://12.12.12.37:8000  # Replace with your MobSF server URL
+          MOBSF_API_KEY: ${{ secrets.MOBSF_API_KEY }}  # GitHub Secret for MobSF API key
