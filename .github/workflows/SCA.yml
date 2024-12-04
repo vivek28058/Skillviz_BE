@@ -57,17 +57,38 @@ jobs:
         run: snyk monitor --all-projects
         continue-on-error: true
 
-      - name: Check for Medium or Higher Severity Issues
+     # - name: Check for Medium or Higher Severity Issues
+      #  id: snyk-check
+      #  run: |
+      #    issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "medium" or .severity == "high" or .severity == "critical")] | length' snyk_report.json)
+      #    if [ "$issues" -gt 0 ]; then
+      #      echo "Found $issues medium or higher severity issues."
+      #      exit 1
+      #    else
+      #      echo "No medium or higher severity issues found."
+      #    fi
+      #  shell: bash
+
+      - name: Check for Medium, High, and Critical Severity Issues
         id: snyk-check
         run: |
-          issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "medium" or .severity == "high" or .severity == "critical")] | length' snyk_report.json)
-          if [ "$issues" -gt 0 ]; then
-            echo "Found $issues medium or higher severity issues."
+          medium_issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "medium")] | length' snyk_report.json)
+          high_issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "high")] | length' snyk_report.json)
+          critical_issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "critical")] | length' snyk_report.json)
+
+          echo "Medium issues: $medium_issues"
+          echo "High issues: $high_issues"
+          echo "Critical issues: $critical_issues"
+
+          total_issues=$((medium_issues + high_issues + critical_issues))
+          if [ "$total_issues" -gt 0 ]; then
+            echo "Found $total_issues medium, high, or critical severity issues."
             exit 1
           else
-            echo "No medium or higher severity issues found."
+            echo "No medium, high, or critical severity issues found."
           fi
         shell: bash
+
 
       #- name: ZAP Dynamic Analysis Scan
       #  uses: zaproxy/action-full-scan@v0.12.0
