@@ -6,47 +6,51 @@ on:
       - main  # or your branch
 
 jobs:
-  mobsf-scan:
+  run_mobsf_scan:
     runs-on: ubuntu-latest
 
     steps:
-      # Set up Docker Buildx (if needed)
-      - name: Set up Docker
-        uses: docker/setup-buildx-action@v2
-
-      # Checkout the code from the repository
-      - name: Checkout repository
+      # Step 1: Check out the code
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      # Run MobSF in Docker and upload APK for scanning
-      - name: Run MobSF in Docker
+      # Step 2: Docker Login (optional if you need to authenticate to Docker registry)
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Docker Login (if pulling private image)
+        uses: docker/login-action@v2
+        with:
+          username: vivek2426
+          password: Subbi$2426
+
+      # Step 3: Run MobSF in Docker container
+      - name: Run MobSF APK Scan
         run: |
-          # Pull the alternative MobSF Docker image
-          docker pull opensecurity/mobsf:latest
-
-          # Run MobSF container in detached mode
-          docker run -d --name mobsf -p 8000:8000 \
-            -v $(pwd):/src \
-            --env MOBSF_API_KEY=${{ secrets.MOBSF_API_KEY }} \
-            opensecurity/mobsf:latest
-          
-          # Wait for MobSF to start up (adjust sleep duration if necessary)
-          sleep 30  # Allow MobSF to initialize, adjust if needed
-
-          # Find APK file in the repository
-          apk_file=$(find . -type f -name "*.apk" | head -n 1)
+          apk_file=$(find . -type f -name "sample.apk" | head -n 1) # Searching for 'sample.apk' in the repo
           if [ -z "$apk_file" ]; then
             echo "No APK file found. Skipping MobSF scan."
             exit 0
           fi
-          
           echo "Uploading $apk_file to MobSF..."
-          curl -X POST "http://12.12.12.37:8000/api/v1/upload" \
-            -H "Authorization: ${{ secrets.MOBSF_API_KEY }}" \
-            -F "file=@$apk_file" --max-time 300
 
-          # Output success message
-          echo "MobSF scan initiated. Check the results in the MobSF UI or logs."
-        
-        # Run the above steps in bash shell
-        shell: /usr/bin/bash -e {0}
+          # Upload to MobSF and get the scan results
+          response=$(curl -s -X POST "$MOBSF_URL/api/v1/upload" \
+            -H "Authorization: ${{ secrets.MOBSF_API_KEY }}" \
+            -F "file=@$apk_file" \
+            --max-time 300)
+
+          # Check if upload was successful and initiate the scan
+          scan_url=$(echo $response | jq -r '.scan_url')
+          if [ "$scan_url" == "null" ]; then
+            echo "Error during MobSF upload: $response"
+            exit 1
+          fi
+          echo "Scan initiated. View the results at: $scan_url"
+          
+          # Save the result for later use
+          echo $response > mobsf_scan_result.json
+          
+        env:
+          MOBSF_URL: http://12.12.12.37:8000  # Replace with your MobSF server's IP or domain
+          MOBSF_API_KEY: ${{ secrets.MOBSF_API_KEY }}
