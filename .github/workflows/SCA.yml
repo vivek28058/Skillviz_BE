@@ -117,41 +117,18 @@ jobs:
       #      zap_report.json
       #      zap_report.html
       
-      - name: Run MobSF APK Scan
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+
+      - name: Run MobSF in Docker
         run: |
-          apk_file=$(find . -type f -name "sample.apk" | head -n 1) # Searching for 'sample.apk' in the repo
-          if [ -z "$apk_file" ]; then
-            echo "No APK file found. Skipping MobSF scan."
-            exit 0
-          fi
-          echo "Uploading $apk_file to MobSF..."
-
-          # Upload to MobSF and get the scan results
-          response=$(curl -v -X POST "$MOBSF_URL/api/v1/upload" \
+          docker run -d --name mobsf -p 8000:8000 \
+            -v $(pwd):/src \
+            --env MOBSF_API_KEY=${{ secrets.MOBSF_API_KEY }} \
+            mobsf/mobsf:latest
+          curl -X POST "http://localhost:8000/api/v1/upload" \
             -H "Authorization: ${{ secrets.MOBSF_API_KEY }}" \
-            -F "file=@$apk_file" \
-            --max-time 300)
-
-          # Check if upload was successful and initiate the scan
-          scan_url=$(echo $response | jq -r '.scan_url')
-          if [ "$scan_url" == "null" ]; then
-            echo "Error during MobSF upload: $response"
-            exit 1
-          fi
-          echo "Scan initiated. View the results at: $scan_url"
-          
-          # Save the result for later use
-          echo $response > mobsf_scan_result.json
-          
-        env:
-          MOBSF_URL: http://12.12.12.37:8000  # Replace with your MobSF server's IP or domain
-          MOBSF_API_KEY: ${{ secrets.MOBSF_API_KEY }}
-
-      - name: Upload MobSF Scan Result
-        uses: actions/upload-artifact@v3
-        with:
-          name: mobsf-scan-result
-          path: mobsf_scan_result.json
+            -F "file=@sample.apk" --max-time 300
 
      # - name: Check for Alerts with riskcode >= 3
       #  id: zap-check
