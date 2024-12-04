@@ -20,6 +20,13 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
+      - name: Generate SonarQube JSON Report
+        run: |
+          curl -u ${{ secrets.SONAR_TOKEN }}: \
+            "https://sonarcloud.io/api/measures/component_tree?component=vivek28058_Skillviz_BE" \
+            -o sonar_report.json
+        shell: bash
+
      # - name: SonarQube Quality Gate check
       #  id: sonarqube-quality-gate-check
       #  uses: sonarsource/sonarqube-quality-gate-action@master
