@@ -84,15 +84,15 @@ jobs:
         with:
           target: 'http://www.itsecgames.com/'
           rules_file_name: '.github/workflows/rules.zap'
-          cmd_options: '-J zap_report.json'
+       #   cmd_options: '-J zap_report.json'
 
-      - name: Debug ZAP JSON Output
-        run: |
-          echo "ZAP JSON Report:"
-          cat zap_report.json
-          echo "Formatted ZAP JSON Output:"
-          jq '.' zap_report.json
-        shell: bash
+     # - name: Debug ZAP JSON Output
+    #    run: |
+     #     echo "ZAP JSON Report:"
+      #    cat zap_report.json
+       #   echo "Formatted ZAP JSON Output:"
+       #   jq '.' zap_report.json
+       # shell: bash
 
 
      # - name: Check for Alerts with riskcode >= 3
