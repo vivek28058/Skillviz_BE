@@ -41,7 +41,7 @@ jobs:
           fi
           
           echo "Uploading $apk_file to MobSF..."
-          curl -X POST "http://localhost:8000/api/v1/upload" \
+          curl -X POST "http://12.12.12.37:8000/api/v1/upload" \
             -H "Authorization: ${{ secrets.MOBSF_API_KEY }}" \
             -F "file=@$apk_file" --max-time 300
 
