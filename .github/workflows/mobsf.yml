@@ -21,14 +21,14 @@ jobs:
       # Run MobSF in Docker and upload APK for scanning
       - name: Run MobSF in Docker
         run: |
-          # Pull the correct MobSF Docker image
-          docker pull mobsf/mobsf:latest
+          # Pull the alternative MobSF Docker image
+          docker pull opensecurity/mobsf:latest
 
           # Run MobSF container in detached mode
           docker run -d --name mobsf -p 8000:8000 \
             -v $(pwd):/src \
             --env MOBSF_API_KEY=${{ secrets.MOBSF_API_KEY }} \
-            mobsf/mobsf:latest
+            opensecurity/mobsf:latest
           
           # Wait for MobSF to start up (adjust sleep duration if necessary)
           sleep 30  # Allow MobSF to initialize, adjust if needed
@@ -50,5 +50,3 @@ jobs:
         
         # Run the above steps in bash shell
         shell: /usr/bin/bash -e {0}
-
-      # Optionally, you can add steps to clean up or take further actions (e.g., saving results or stopping the container)
