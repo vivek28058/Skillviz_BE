@@ -13,24 +13,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Upload APK to MobSF for scanning
-        run: |
-          apk_file=$(find . -type f -name "sample.apk" | head -n 1)
-          if [ -z "$apk_file" ]; then
-            echo "No APK file found. Skipping MobSF scan."
-            exit 0
-          fi
-          echo "Uploading $apk_file to MobSF..."
-          response=$(curl -s -X POST "$MOBSF_URL/api/v1/upload" \
-            -H "Authorization: ${{ secrets.MOBSF_API_KEY }}" \
-            -F "file=@$apk_file" \
-            --max-time 20)
-          scan_url=$(echo $response | jq -r '.scan_url')
-          if [ "$scan_url" == "null" ]; then
-            echo "Error during MobSF upload: $response"
-            exit 1
-          fi
-          echo "Scan initiated. View the results at: $scan_url"
+      - name: Run MobSF Analysis
+        uses: fundacaocerti/mobsf-action@v1.7.2
         env:
-          MOBSF_URL: http://12.12.12.37:8000  # Replace with your MobSF server URL
-          MOBSF_API_KEY: ${{ secrets.MOBSF_API_KEY }}  # GitHub Secret for MobSF API key
+          INPUT_FILE_NAME: sample.apk
+          SCAN_TYPE: apk
+          OUTPUT_FILE_NAME: mobsf-report
