@@ -36,7 +36,7 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
       - name: Run Snyk Dependencies Scan
-        run: snyk test --all-projects
+        run: snyk test --all-projects --json > snyk_report.json
         continue-on-error: true
 
       - name: Monitor Snyk SCA Scan
