@@ -57,18 +57,6 @@ jobs:
         run: snyk monitor --all-projects
         continue-on-error: true
 
-      #- name: Check for Medium or Higher Severity Issues
-      #  id: snyk-check
-      #  run: |
-      #    issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "medium" or .severity == "high" or .severity == "critical")] | length' snyk_report.json)
-      #    if [ "$issues" -gt 0 ]; then
-      #      echo "Found $issues medium or higher severity issues."
-      #      exit 1
-      #    else
-      #      echo "No medium or higher severity issues found."
-      #    fi
-      #  shell: bash
-
       - name: Check for Medium, High, and Critical Severity Issues
         id: snyk-check
         run: |
@@ -96,7 +84,7 @@ jobs:
         with:
           target: 'http://www.itsecgames.com/'
           rules_file_name: '.github/workflows/rules.zap'
-         # cmd_options: '-J zap_report.json'
+          cmd_options: '-J zap_report.json'
 
       - name: Debug ZAP JSON Output
         run: |
