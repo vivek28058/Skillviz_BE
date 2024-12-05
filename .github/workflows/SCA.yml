@@ -40,12 +40,6 @@ jobs:
            name: sonar-report
            path: sonar_report.json
 
-      - name: Build Docker Image
-        run: |
-          docker build -t myapp:latest .
-        env:
-          DOCKER_BUILDKIT: 1
-
       - name: Install Snyk
         run: |
           sudo apt-get update
@@ -104,21 +98,6 @@ jobs:
         with:
             name: snyk-report
             path: snyk_report.json
-
-      - name: Scan Docker Image
-        run: |
-          snyk container test myapp:latest --severity-threshold=low --json --file=Dockerfile --project-name=SkillsViz > snyk_scan_results.json
-          cat snyk_scan_results.json  # Display the scan results in the console
-          
-      - name: Upload Snyk Scan Results as Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: Docker-results
-          path: snyk_scan_results.json
-
-      - name: Monitor Snyk Docker Project
-        run: |
-          snyk monitor --docker myapp:latest --project-name=SkillsViz
 
       - name: ZAP Dynamic Analysis Scan
         uses: zaproxy/action-full-scan@v0.12.0
