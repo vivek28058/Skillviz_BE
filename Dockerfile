@@ -5,7 +5,7 @@ WORKDIR /app
 # Install dependencies into a temporary directory
 FROM base AS install
 COPY package.json bun.lockb /app/
-RUN bun install --frozen-lockfile
+RUN bun install 
  
 # Copy the application code into the image
 FROM base AS dev
