@@ -1,0 +1,75 @@
+# VITE_ADMIN_ADD_USER="/user/add"
+# VITE_ADMIN_ANALYTICS_API="/analytics"
+# VITE_ADMIN_API_ENDPOINT="/api/v1/admin"
+# VITE_ADMIN_HIERARCHY_API="/hierarchy/all"
+# VITE_ADMIN_HIERARCHY_COUNT_API="/hierarchy/count"
+# VITE_ADMIN_RESET_USER_PASSWORD="/user/password"
+# VITE_ADMIN_SEARCH_API="/search/categories"
+# VITE_ADMIN_SIMPLE_SEARCH_API="/simplesearch"
+# VITE_ADMIN_USERS_API="/user/all"
+# VITE_ADMIN_USER_ROLE="/user/admin"
+# VITE_ADMIN_USER_STATUS="/user/status"
+# VITE_AUTH_API_ENDPOINT="/api/v1/auth"
+# # VITE_BASE_URL="https://skillviz.igsqa.com"
+# VITE_BASE_URL="http://198.168.29.195:5001"
+# VITE_ADMIN_URL="http://198.168.29.195:5002"
+
+# # VITE_BASE_URL="https://skillviz.igsqa.com"
+# VITE_LOGIN_URL ="http://192.168.29.195:5005"
+# VITE_LOGIN_API="/login"
+# VITE_USERS_ANALYTICS_API="/analytics"
+# VITE_USERS_CERTIFICATES_API="/certificates"
+# VITE_USERS_EDUCATION_API="/education"
+# VITE_USERS_EXPERIENCE_API="/experience"
+# VITE_USERS_HIERARCHY_API="/hierarchy"
+# VITE_USERS_SET_PASSWORD="/password"
+# VITE_USER_API_ENDPOINT="/api/v1/users"
+
+
+
+
+# Base URL for local testing
+VITE_BASE_URL="http://49.249.95.65:4039"
+ 
+# Local API endpoints
+VITE_USER_API_ENDPOINT="/api/v1/users"
+VITE_ADMIN_API_ENDPOINT="/api/v1/admin"
+VITE_AUTH_API_ENDPOINT="/api/v1/auth"
+ 
+# # Other endpoints
+# VITE_LOGIN_API="/login"
+# VITE_ADMIN_ANALYTICS_API="/analytics"
+# VITE_ADMIN_HIERARCHY_API="/hierarchy/all"
+# VITE_ADMIN_HIERARCHY_COUNT_API="/hierarchy/count"
+# VITE_ADMIN_USERS_API="/user/all"
+# VITE_USERS_HIERARCHY_API="/hierarchy"
+# # Add more as needed
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+VITE_ADMIN_ADD_USER="/user/add"
+VITE_ADMIN_ANALYTICS_API="/analytics"
+# VITE_ADMIN_API_ENDPOINT="/api/v1/admin"
+VITE_ADMIN_HIERARCHY_API="/hierarchy/all"
+VITE_ADMIN_HIERARCHY_COUNT_API="/hierarchy/count"
+VITE_ADMIN_RESET_USER_PASSWORD="/user/password"
+VITE_ADMIN_SEARCH_API="/search/categories"
+VITE_ADMIN_SIMPLE_SEARCH_API="/simplesearch"
+VITE_ADMIN_USERS_API="/user/all"
+VITE_ADMIN_USER_ROLE="/user/admin"
+VITE_ADMIN_USER_STATUS="/user/status"
+# VITE_AUTH_API_ENDPOINT="/api/v1/auth"
+# VITE_BASE_URL="https://skillviz.igsqa.com"
+VITE_LOGIN_API="/login"
+VITE_USERS_ANALYTICS_API="/analytics"
+VITE_USERS_CERTIFICATES_API="/certificates"
+VITE_USERS_EDUCATION_API="/education"
+VITE_USERS_EXPERIENCE_API="/experience"
+VITE_USERS_HIERARCHY_API="/hierarchy"
+VITE_USERS_SET_PASSWORD="/password"
+# VITE_USER_API_ENDPOINT="/api/v1/users"
