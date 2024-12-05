@@ -15,124 +15,110 @@ jobs:
         with:
           fetch-depth: 0 
 
-     # - name: SonarQube Source Code Scan
-      #  uses: SonarSource/sonarcloud-github-action@master
-      #  env:
-      #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: SonarQube Source Code Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-   #   - name: Generate SonarQube JSON Report
-    #    run: |
-     #     curl -u ${{ secrets.SONAR_TOKEN }}: \
-      #      "https://sonarcloud.io/api/measures/component_tree?component=vivek28058_Skillviz_BE&metricKeys=ncloc,complexity,violations,bugs,vulnerabilities,code_smells" \
-       #     -o sonar_report.json
-       # shell: bash
+      - name: Generate SonarQube JSON Report
+        run: |
+          curl -u ${{ secrets.SONAR_TOKEN }}: \
+            "https://sonarcloud.io/api/measures/component_tree?component=vivek28058_Skillviz_BE&metricKeys=ncloc,complexity,violations,bugs,vulnerabilities,code_smells" \
+            -o sonar_report.json
+        shell: bash
 
-     # - name: SonarQube Quality Gate check
+      #- name: SonarQube Quality Gate check
       #  id: sonarqube-quality-gate-check
       #  uses: sonarsource/sonarqube-quality-gate-action@master
       #  timeout-minutes: 5
       #  env:
       #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-     # - name: Upload SonarQube Report
-      #  uses: actions/upload-artifact@v3
-       # with:
-       #    name: sonar-report
-        #   path: sonar_report.json
+      - name: Upload SonarQube Report
+        uses: actions/upload-artifact@v3
+        with:
+           name: sonar-report
+           path: sonar_report.json
 
-     # - name: Install Snyk
-      #  run: npm install -g snyk
-
-    #  - name: Authenticate Snyk
-     #   run: snyk auth ${{ secrets.SNYK_TOKEN }}
-      #  env:
-       #   SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      - name: Install Snyk
+        run: npm install -g snyk
+        
+      - name: Authenticate Snyk
+        run: snyk auth ${{ secrets.SNYK_TOKEN }}
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
        
-     # - name: Run Snyk Dependencies Scan
-      #  id: snyk-scan
-      #  run: |
-      #    snyk test --all-projects --json > snyk_report.json || true
-       # shell: bash
-
-     # - name: Debug Snyk JSON Output
-      #  run: |
-       #   echo "Printing snyk_report.json:"
-        #  cat snyk_report.json
-         # echo "Formatted output using jq:"
-        #  jq '.' snyk_report.json
-        #shell: bash
-
-    #  - name: Monitor Snyk SCA Scan
-     #   run: snyk monitor --all-projects
-      #  continue-on-error: true
-
-     # - name: Check for Medium, High, and Critical Severity Issues
-      #  id: snyk-check
-       # run: |
-        #  medium_issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "medium")] | length' snyk_report.json)
-         # high_issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "high")] | length' snyk_report.json)
-         # critical_issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "critical")] | length' snyk_report.json)
-
-        #  echo "Medium issues: $medium_issues"
-        #  echo "High issues: $high_issues"
-         # echo "Critical issues: $critical_issues"
-
-         # if [ "$critical_issues" -gt 0 ]; then
-          #  echo "Job failed: Found $critical_issues critical severity issues."
-          #  exit 1
-         # else
-          #  echo "No critical severity issues found."
-          #  echo "Medium issues: $medium_issues"
-          #  echo "High issues: $high_issues"
-          #  echo "Job passed despite $((medium_issues + high_issues)) medium and high severity issues."
-         # fi
-       # shell: bash
-
-     # - name: Upload Snyk Report
-      #  uses: actions/upload-artifact@v3
-      #  with:
-       #     name: snyk-report
-        #    path: snyk_report.json
-
-      #- name: ZAP Dynamic Analysis Scan
-      #  uses: zaproxy/action-full-scan@v0.12.0
-      #  with:
-      #    target: 'http://www.itsecgames.com/'
-      #    rules_file_name: '.github/workflows/rules.zap'
-      #    cmd_options: '-J zap_report.json'
-
-      #- name: Debug ZAP JSON Output
-      #  run: |
-      #    echo "ZAP JSON Report:"
-      #    cat zap_report.json
-      #    echo "Formatted ZAP JSON Output:"
-      #    jq '.' zap_report.json
-      #  shell: bash
-
-      #- name: Upload ZAP Reports
-      #  uses: actions/upload-artifact@v3
-      #  with:
-      #    name: zap-reports
-      #    path: |
-      #      zap_report.json
-      #      zap_report.html
-      
-      - name: Set up Docker
-        uses: docker/setup-buildx-action@v2
-
-      - name: Run MobSF in Docker
+      - name: Run Snyk Dependencies Scan
+        id: snyk-scan
         run: |
-          docker run -d --name mobsf -p 8000:8000 \
-            -v $(pwd):/src \
-            --env MOBSF_API_KEY=${{ secrets.MOBSF_API_KEY }} \
-            mobsf/mobsf:latest
-          curl -X POST "http://localhost:8000/api/v1/upload" \
-            -H "Authorization: ${{ secrets.MOBSF_API_KEY }}" \
-            -F "file=@sample.apk" --max-time 300
+          snyk test --all-projects --json > snyk_report.json || true
+        shell: bash
+
+      - name: Debug Snyk JSON Output
+        run: |
+          echo "Printing snyk_report.json:"
+          cat snyk_report.json
+          echo "Formatted output using jq:"
+          jq '.' snyk_report.json
+        shell: bash
+
+      - name: Monitor Snyk SCA Scan
+        run: snyk monitor --all-projects
+        continue-on-error: true
+
+      - name: Check for Medium, High, and Critical Severity Issues
+        id: snyk-check
+        run: |
+          medium_issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "medium")] | length' snyk_report.json)
+          high_issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "high")] | length' snyk_report.json)
+          critical_issues=$(jq '[.[] | select(.vulnerabilities != null) | .vulnerabilities[] | select(.severity == "critical")] | length' snyk_report.json)
+
+          echo "Medium issues: $medium_issues"
+          echo "High issues: $high_issues"
+          echo "Critical issues: $critical_issues"
+
+          if [ "$critical_issues" -gt 0 ]; then
+            echo "Job failed: Found $critical_issues critical severity issues."
+            exit 1
+          else
+            echo "No critical severity issues found."
+            echo "Medium issues: $medium_issues"
+            echo "High issues: $high_issues"
+            echo "Job passed despite $((medium_issues + high_issues)) medium and high severity issues."
+          fi
+        shell: bash
+
+      - name: Upload Snyk Report
+        uses: actions/upload-artifact@v3
+        with:
+            name: snyk-report
+            path: snyk_report.json
+
+      - name: ZAP Dynamic Analysis Scan
+        uses: zaproxy/action-full-scan@v0.12.0
+        with:
+          target: 'http://www.itsecgames.com/'
+          rules_file_name: '.github/workflows/rules.zap'
+          cmd_options: '-J zap_report.json'
+
+      - name: Debug ZAP JSON Output
+        run: |
+          echo "ZAP JSON Report:"
+          cat zap_report.json
+          echo "Formatted ZAP JSON Output:"
+          jq '.' zap_report.json
+        shell: bash
+
+      - name: Upload ZAP Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: zap-reports
+          path: |
+            zap_report.json
 
      # - name: Check for Alerts with riskcode >= 3
-      #  id: zap-check
-       # run: |
+     #     id: zap-check
+     #      run: |
        #   if [ ! -f zap_report.json ]; then
         #    echo "ZAP JSON report not found. Ensure the scan completed successfully."
         #    exit 1
@@ -150,14 +136,3 @@ jobs:
          #   echo "No alerts with riskcode >= 3 found. Job passed."
          # fi
        # shell: bash
-
-
-      #- name: ZAP Dynamic Analysis Scan
-      #  uses: zaproxy/action-full-scan@v0.12.0
-       # with:
-         # target: 'https://bwapp.hakhub.net/'
-          #rules_file_name: '.github/workflows/rules.zap'
-
-
-          
-    
